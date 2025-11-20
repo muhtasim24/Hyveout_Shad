@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHAD FUCKBOY</title>
-    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+    <title>Color Match Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-
 <body>
     <div class="container">
         <img class="logo" src="./assets/logo.png">
@@ -23,16 +20,20 @@
         </div>
 
         <div class="controls">
-            <div class="slider-wrapper">
-                <img class="color-control" src="./assets/satBar.png">
+            <!-- Hue Slider -->
+            <div class="slider-wrapper" id="hue-slider">
+                <img class="slider-bg" src="./assets/satBar.png">
                 <div class="slider-fill hue-fill"></div>
             </div>
             
-            <div class="slider-wrapper">
-                <img class="sat-control" src="./assets/satBar.png">
+            <!-- Saturation Slider -->
+            <div class="slider-wrapper" id="sat-slider">
+                <img class="slider-bg" src="./assets/satBar.png">
                 <div class="slider-fill sat-fill"></div>
             </div>
         </div>
-        
     </div>
+
+    <script src="script.js"></script>
+</body>
 </html>

@@ -1,46 +1,58 @@
-let hueFill = document.querySelector(".hue-fill");
-let satFill = document.querySelector(".sat-fill");
+const userColorBox = document.querySelector(".user-set");
+const targetBox = document.querySelector(".target");
 
-let userBox = document.querySelector(".user-set");
-let targetBox = document.querySelector(".target");
-
-// TARGET COLOR
-let targetHue = 330;
-let targetSat = 70;
-let targetLight = 60;
-
-targetBox.style.background = `hsl(${targetHue}, ${targetSat}%, ${targetLight}%)`;
-
-// USER VALUES
 let hue = 0;
-let sat = 50;
-let light = 60;
+let sat = 100;
 
-// ----- HUE SLIDER -----
-document.querySelector(".color-control").addEventListener("click", e => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = x / rect.width;
+// --- RANDOM TARGET COLOR ---
+let targetHue = 320
+let targetSat = 100
 
-    hue = Math.floor(percentage * 360);
-    hueFill.style.width = `${percentage * 100}%`;
+targetBox.style.backgroundColor = `hsl(${targetHue}, ${targetSat}%, 60%)`;
 
-    updateUserColor();
-});
+// --- SLIDER LOGIC ---
+function handleSlider(slider, callback, fillClass) {
+    slider.addEventListener("click", (e) => {
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percent = (x / rect.width) * 100;
 
-// ----- SAT SLIDER -----
-document.querySelector(".sat-control").addEventListener("click", e => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const percentage = x / rect.width;
+        slider.querySelector("." + fillClass).style.width = percent + "%";
 
-    sat = Math.floor(percentage * 100);
-    satFill.style.width = `${percentage * 100}%`;
-
-    updateUserColor();
-});
-
-// UPDATE COLOR
-function updateUserColor() {
-    userBox.style.background = `hsl(${hue}, ${sat}%, ${light}%)`;
+        callback(percent);
+        updateUserColor();
+    });
 }
+
+// update user color box
+function updateUserColor() {
+    userColorBox.style.backgroundColor = `hsl(${hue}, ${sat}%, 50%)`;
+}
+
+// hook sliders
+handleSlider(document.getElementById("hue-slider"), 
+    pct => {
+        hue = (pct / 100) * 360;
+        updateSatSliderGradient();
+    },
+    "hue-fill"
+);
+
+function updateSatSliderGradient() {
+    const satSliderBG = document.querySelector("#sat-slider .slider-bg");
+    satSliderBG.style.background = `
+        linear-gradient(to right,
+            hsl(${hue}, 0%, 50%),
+            hsl(${hue}, 100%, 50%)
+        )
+    `;
+}
+
+updateSatSliderGradient();
+
+
+
+handleSlider(document.getElementById("sat-slider"), 
+    pct => sat = pct,
+    "sat-fill"
+);
