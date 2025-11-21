@@ -20,18 +20,21 @@
         </div>
 
         <div class="controls">
-            <!-- Hue Slider -->
-            <div class="slider-wrapper" id="hue-slider">
-                <img class="slider-bg" src="./assets/satBar.png">
-                <div class="slider-fill hue-fill"></div>
+
+            <!-- Hue slider -->
+            <div class="slider-container">
+                <img src="./assets/satBar.png" class="slider-bg hue">
+                <input type="range" min="0" max="360" value="0" class="hue-range" id="hue-range">
             </div>
-            
-            <!-- Saturation Slider -->
-            <div class="slider-wrapper" id="sat-slider">
-                <img class="slider-bg" src="./assets/satBar.png">
-                <div class="slider-fill sat-fill"></div>
+        
+            <!-- Saturation slider -->
+            <div class="slider-container">
+                <img src="./assets/satBar.png" class="slider-bg sat">
+                <input type="range" min="0" max="100" value="100" id="sat-range" class="sat-range">
             </div>
+        
         </div>
+        
     </div>
 
     <script src="script.js"></script>
