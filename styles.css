@@ -1,3 +1,26 @@
+  
+  * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;              /* prevent scrolling */
+    touch-action: none;            /* block touch gestures */
+    overscroll-behavior: none;     /* block iOS/Android bounce */
+    
+    user-select: none;             /* block text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;   /* block long-press menu */
+}
+
+
+
 body {
     background: white;
     margin: 0;
@@ -13,39 +36,39 @@ body {
 }
 
 .logo {
-    width: 80vw;
+    width: clamp(40vw, 70vw, 70vw);
     margin-top: 100px;
 }
 
 .gamebox-container {
-    position: relative; /* allows colors to be positioned inside */
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    position: relative;
 }
 
 .box {
-    width: 60vw;
-    max-width: 300px;
+    width: clamp(150px, 55vw, 300px);
     display: block;
     z-index: 99;
+
+
+
 }
 
 .colors {
-    position: absolute; /* position on top of box */
-    top: 60%;           /* adjust to vertically center inside box */
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     gap: 7px;
-    z-index: 0;
+
+    position: absolute;
+    top: 25%;
 }
 
 .target, .user-set {
-    width: 21vw;
-    height: 7vh;
-    margin-top: -50px;
+    
+    width: clamp(30px, 19.7vw, 155px);
+    height: clamp(20px, 7vh, 70px)
 }
 
 h1 {
@@ -61,12 +84,14 @@ h1 {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-
-    width: 100vw;
+    width: clamp(40vw, 58vw, 60vw);
     height: 13vh;
     display: flex;
     align-items: center; /* centers the input vertically */
     justify-content: center; /* optional, centers horizontally */
+
+    position: relative;
+    left: -3%;
 }
 
 
@@ -74,17 +99,16 @@ h1 {
 
 
 
-.sat {
+.sat{
     margin-top: 20px;
     transform: rotateX(180deg) rotateY(180deg);
+    left: 3%;
 }
 
 .hue-range {
     -webkit-appearance: none;  /* remove default styles */
     position: relative;
-    top: 29%;
-    left: 2%;
-    width: 40vw;
+    width: clamp(100px, 35vw, 150px);
     height: 1.1vh;
     border-radius: 10px;
     background: linear-gradient(to right, 
@@ -92,17 +116,121 @@ h1 {
     );
     outline: none;  /* remove outline when focused */
     touch-action: none;
+
+    position: absolute;
+    top: 67%;
+    left: 22%;
 }
 
 .sat-range {
     touch-action: none;
     -webkit-appearance: none;
     position: relative;
-    top: 29%;
-    left: 2%;
-    width: 40vw;
+    width: clamp(20vw, 35vw, 150px);
     height: 1.1vh;
     border-radius: 10px;
     outline: none;
-    background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(0, 0%, 100%)); /* placeholder gradient */
+    background: linear-gradient(to right, hsl(0, 0%, 100%),  hsl(0, 100%, 50%)); /* placeholder gradient */
+    transform: scaleX(-1); /* unflip the slider logic */
+
+    position: absolute;
+    top: 67%;
+    left: 23%;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 4vw;
+    height: 1.8vh;
+    background: hotpink;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+
+
+/* ------------------------------------------ DESKTOP ------------------------------------------------------- */
+@media (min-width: 768px) {
+    .logo {
+        width: 30vw;
+    }
+
+  
+    .gamebox-container {
+        margin-top: 100px;
+
+    }
+
+    .box {
+        width: 20vw
+    }
+
+        
+    .colors {
+        display: flex;
+        gap: 7px;
+
+        position: absolute;
+        top: 24%;
+    }
+
+    .target, .user-set {
+        width: 7.4vw;
+        height: 11.8vh;
+    }
+
+    h1 {
+        font-size: 1.5vw;
+        text-align: center;
+        color: hotpink;
+    }
+
+    .slider-bg {
+        width: 40vw;
+        height: 15vh;
+        
+        position: relative;
+        left: -3%;
+}
+
+
+
+
+
+
+    .sat{
+        margin-top: 20px;
+        left: 1%;
+    }
+
+    .hue-range {
+        width: 10vw;
+        height: 1.3vh;
+        border-radius: 40px;
+
+        top: 73%;
+        left: 39%;
+    }
+
+    .sat-range {
+        width: 10vw;
+        height: 1.3vh;
+        border-radius: 40px;
+
+        top: 73%;
+        left: 39.5%;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+
+        width: 1vw;
+        height: 1.8vh;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid white;
+}
+
+}
+

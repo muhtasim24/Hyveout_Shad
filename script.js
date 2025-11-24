@@ -46,7 +46,7 @@ const satRange = document.getElementById("sat-range");
 
 function updateSatGradient(hue) {
     satRange.style.background = `
-        linear-gradient(to left,
+        linear-gradient(to right,
             hsl(${hue}, 0%, 50%),
             hsl(${hue}, 100%, 50%)
         )
