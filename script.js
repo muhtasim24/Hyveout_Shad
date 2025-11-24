@@ -13,15 +13,42 @@ function updateUserColor() {
     userColorBox.style.backgroundColor = `hsl(${hue}, ${sat}%, 50%)`;
 }
 
+// --- MATCH CHECK ---
+function colorsAreClose(h1, s1, h2, s2) {
+    const hueDiff = Math.abs(h1 - h2);
+    const satDiff = Math.abs(s1 - s2);
+
+    return hueDiff < 5 && satDiff < 5;
+}
+
+// function checkMatch() {
+//     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
+//         window.location.href = "https://underdogs.ooo/products/max";
+//     }
+// }
+
+// --- SLIDERS ---
 document.getElementById("hue-range").addEventListener("input", e => {
     hue = e.target.value;
-    console.log(hue);
     updateUserColor();
+    updateSatGradient(hue);
+    checkMatch();
 });
 
 document.getElementById("sat-range").addEventListener("input", e => {
     sat = e.target.value;
-    console.log(sat);
     updateUserColor();
+    checkMatch();
 });
 
+// --- SATURATION GRADIENT ---
+const satRange = document.getElementById("sat-range");
+
+function updateSatGradient(hue) {
+    satRange.style.background = `
+        linear-gradient(to left,
+            hsl(${hue}, 0%, 50%),
+            hsl(${hue}, 100%, 50%)
+        )
+    `;
+}

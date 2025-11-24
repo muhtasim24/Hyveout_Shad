@@ -54,49 +54,55 @@ h1 {
     color: hotpink;
 }
 
-.slider-container {
-    position: relative;  /* makes input position relative to container */
-}
-
 
 
 .slider-bg {
-    width: 70vw;
-    height: 10vh;
-    display: block;
+    background-image: url("./assets/satBar.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    width: 100vw;
+    height: 13vh;
+    display: flex;
+    align-items: center; /* centers the input vertically */
+    justify-content: center; /* optional, centers horizontally */
 }
 
-.slider-container input[type="range"] {
-    position: absolute;  /* overlay on top of the image */
-    top: 0;
-    left: 0;
-    width: 70%;
-    height: 100%;
-    
-    background: transparent;  /* keep image visible */
-    cursor: pointer;
-}
 
-/* style the thumb */
-.slider-container input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 24px;
-    background: white;
-    border: 2px solid black;
-    border-radius: 50%;
-    margin-top: -4px; /* center thumb vertically */
-}
+
 
 
 
 .sat {
-    transform: rotateX(180deg);
+    margin-top: 20px;
+    transform: rotateX(180deg) rotateY(180deg);
 }
 
-
 .hue-range {
-    position: absolute;
-    top: 60.5%;
+    -webkit-appearance: none;  /* remove default styles */
+    position: relative;
+    top: 29%;
+    left: 2%;
+    width: 40vw;
+    height: 1.1vh;
+    border-radius: 10px;
+    background: linear-gradient(to right, 
+        red, orange, yellow, green, cyan, blue, violet, red
+    );
+    outline: none;  /* remove outline when focused */
+    touch-action: none;
+}
+
+.sat-range {
+    touch-action: none;
+    -webkit-appearance: none;
+    position: relative;
+    top: 29%;
+    left: 2%;
+    width: 40vw;
+    height: 1.1vh;
+    border-radius: 10px;
+    outline: none;
+    background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(0, 0%, 100%)); /* placeholder gradient */
 }
