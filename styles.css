@@ -68,7 +68,7 @@ body {
 .target, .user-set {
     
     width: clamp(30px, 19.7vw, 155px);
-    height: clamp(20px, 7vh, 70px)
+    height: clamp(20px, 7.5vh, 70px)
 }
 
 h1 {
@@ -118,7 +118,7 @@ h1 {
     touch-action: none;
 
     position: absolute;
-    top: 67%;
+    top: 69%;
     left: 22%;
 }
 
@@ -134,7 +134,7 @@ h1 {
     transform: scaleX(-1); /* unflip the slider logic */
 
     position: absolute;
-    top: 67%;
+    top: 68%;
     left: 23%;
 }
 
