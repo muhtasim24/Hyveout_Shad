@@ -46,7 +46,7 @@ document.getElementById("sat-range").addEventListener("input", e => {
     updateUserColor();
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
-        videoDiv.style.display = "flex";
+        videoDiv.style.display = "block";
         endVideo.play();
 
         endVideo.onended = () => {
