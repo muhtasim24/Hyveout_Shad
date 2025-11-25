@@ -2,14 +2,29 @@ const userColorBox = document.querySelector(".user-set");
 const targetBox = document.querySelector(".target");
 const videoDiv = document.getElementById('video');
 const endVideo = document.getElementById('endVideo');
-const audio = document.getElementById('music');
 let audioStarted = false;
+
+const playButton = document.getElementById("play");
+const startScreen = document.querySelector(".startScreen");
+const container = document.getElementById("container");
+const music = document.getElementById("music");
+
+playButton.addEventListener("click", () => {
+    // Show game
+    startScreen.style.display = "none";
+    container.style.display = "flex";
+
+    music.play();
+});
 
 let hue = 0;
 let sat = 0;
 
 let targetHue = 320;
 let targetSat = 100;
+
+
+
 
 targetBox.style.backgroundColor = `hsl(${targetHue}, ${targetSat}%, 60%)`;
 
@@ -35,7 +50,6 @@ function colorsAreClose(h1, s1, h2, s2) {
 
 // --- SLIDERS ---
 document.getElementById("hue-range").addEventListener("input", e => {
-    startAudio();
     hue = e.target.value;
     updateUserColor();
     updateSatGradient(hue);
@@ -51,7 +65,6 @@ document.getElementById("hue-range").addEventListener("input", e => {
 });
 
 document.getElementById("sat-range").addEventListener("input", e => {
-    startAudio();
     sat = e.target.value;
     updateUserColor();
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
