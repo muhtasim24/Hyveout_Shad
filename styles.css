@@ -37,7 +37,7 @@ body {
 
 .logo {
     width: clamp(40vw, 70vw, 70vw);
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .gamebox-container {
@@ -62,19 +62,20 @@ body {
     gap: 7px;
 
     position: absolute;
-    top: 25%;
+    top: 34%;
 }
 
 .target, .user-set {
     
-    width: clamp(30px, 19.7vw, 155px);
-    height: clamp(20px, 7.5vh, 70px)
+    width: clamp(30px, 19vw, 150px);
+    height: clamp(20px, 7vh, 70px)
 }
 
-h1 {
-    font-size: 4vw;
+.text {
+    width: 33vw;
     text-align: center;
-    color: hotpink;
+    margin-top: 18px;
+    margin-bottom: 20px;
 }
 
 
@@ -130,7 +131,7 @@ h1 {
     height: 1.1vh;
     border-radius: 10px;
     outline: none;
-    background: linear-gradient(to right, hsl(0, 0%, 100%),  hsl(0, 100%, 50%)); /* placeholder gradient */
+    background: linear-gradient(to right, hsl(0, 3%, 79%),  hsl(0, 100%, 50%)); /* placeholder gradient */
     transform: scaleX(-1); /* unflip the slider logic */
 
     position: absolute;
@@ -149,6 +150,21 @@ input[type="range"]::-webkit-slider-thumb {
     border: 2px solid white;
 }
 
+
+/* Animation 1 video full-screen */
+#video {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: black;
+    justify-content: center;
+    align-items: center;
+}
+  
 
 
 /* ------------------------------------------ DESKTOP ------------------------------------------------------- */
@@ -174,18 +190,16 @@ input[type="range"]::-webkit-slider-thumb {
         gap: 7px;
 
         position: absolute;
-        top: 24%;
+        top: 34%;
     }
 
     .target, .user-set {
         width: 7.4vw;
-        height: 11.8vh;
+        height: 10.8vh;
     }
 
-    h1 {
-        font-size: 1.5vw;
-        text-align: center;
-        color: hotpink;
+    .text {
+        width: 10vw;
     }
 
     .slider-bg {

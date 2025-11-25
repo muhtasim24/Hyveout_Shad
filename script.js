@@ -1,8 +1,11 @@
 const userColorBox = document.querySelector(".user-set");
 const targetBox = document.querySelector(".target");
+const videoDiv = document.getElementById('video');
+const endVideo = document.getElementById('endVideo');
+
 
 let hue = 0;
-let sat = 100;
+let sat = 0;
 
 let targetHue = 320;
 let targetSat = 100;
@@ -21,11 +24,17 @@ function colorsAreClose(h1, s1, h2, s2) {
     return hueDiff < 5 && satDiff < 5;
 }
 
-// function checkMatch() {
-//     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
-//         window.location.href = "https://underdogs.ooo/products/max";
-//     }
-// }
+function checkMatch() {
+    if (colorsAreClose(hue, sat, targetHue, targetSat)) {
+        console.log('playing');
+        videoDiv.style.display = "flex";
+        endVideo.play();
+
+        endVideo.onended = () => {
+            window.location.href = "https://underdogs.ooo/products/max";
+        };
+    }
+}
 
 // --- SLIDERS ---
 document.getElementById("hue-range").addEventListener("input", e => {
