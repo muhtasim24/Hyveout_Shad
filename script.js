@@ -24,7 +24,12 @@ function colorsAreClose(h1, s1, h2, s2) {
     return hueDiff < 5 && satDiff < 5;
 }
 
-function checkMatch() {
+
+// --- SLIDERS ---
+document.getElementById("hue-range").addEventListener("input", e => {
+    hue = e.target.value;
+    updateUserColor();
+    updateSatGradient(hue);
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
         videoDiv.style.display = "flex";
@@ -34,20 +39,20 @@ function checkMatch() {
             window.location.href = "https://underdogs.ooo/products/max";
         };
     }
-}
-
-// --- SLIDERS ---
-document.getElementById("hue-range").addEventListener("input", e => {
-    hue = e.target.value;
-    updateUserColor();
-    updateSatGradient(hue);
-    checkMatch();
 });
 
 document.getElementById("sat-range").addEventListener("input", e => {
     sat = e.target.value;
     updateUserColor();
-    checkMatch();
+    if (colorsAreClose(hue, sat, targetHue, targetSat)) {
+        console.log('playing');
+        videoDiv.style.display = "flex";
+        endVideo.play();
+
+        endVideo.onended = () => {
+            window.location.href = "https://underdogs.ooo/products/max";
+        };
+    }
 });
 
 // --- SATURATION GRADIENT ---
