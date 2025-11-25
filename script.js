@@ -62,7 +62,7 @@ document.getElementById("hue-range").addEventListener("input", e => {
         endVideo.play();
 
         endVideo.onended = () => {
-            window.location.href = "https://underdogs.ooo/products/max";
+            window.location.href = "https://underdogs.ooo/a/gempages?version=v7&shop_id=589225404988916242&theme_page_id=594726190963491762&page_type=GP_PRODUCT";
         };
     }
 });
@@ -77,7 +77,7 @@ document.getElementById("sat-range").addEventListener("input", e => {
         endVideo.play();
 
         endVideo.onended = () => {
-            window.location.href = "https://underdogs.ooo/products/max";
+            window.location.href = "https://underdogs.ooo/a/gempages?version=v7&shop_id=589225404988916242&theme_page_id=594726190963491762&page_type=GP_PRODUCT";
         };
     }
 });
