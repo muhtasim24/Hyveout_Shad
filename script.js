@@ -2,7 +2,8 @@ const userColorBox = document.querySelector(".user-set");
 const targetBox = document.querySelector(".target");
 const videoDiv = document.getElementById('video');
 const endVideo = document.getElementById('endVideo');
-
+const audio = document.getElementById('music');
+let audioStarted = false;
 
 let hue = 0;
 let sat = 0;
@@ -11,6 +12,13 @@ let targetHue = 320;
 let targetSat = 100;
 
 targetBox.style.backgroundColor = `hsl(${targetHue}, ${targetSat}%, 60%)`;
+
+function startAudio() {
+    if (!audioStarted) {
+        music.play();
+        audioStarted = true;
+    }
+}
 
 function updateUserColor() {
     userColorBox.style.backgroundColor = `hsl(${hue}, ${sat}%, 50%)`;
@@ -27,6 +35,7 @@ function colorsAreClose(h1, s1, h2, s2) {
 
 // --- SLIDERS ---
 document.getElementById("hue-range").addEventListener("input", e => {
+    startAudio();
     hue = e.target.value;
     updateUserColor();
     updateSatGradient(hue);
@@ -42,6 +51,7 @@ document.getElementById("hue-range").addEventListener("input", e => {
 });
 
 document.getElementById("sat-range").addEventListener("input", e => {
+    startAudio();
     sat = e.target.value;
     updateUserColor();
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
