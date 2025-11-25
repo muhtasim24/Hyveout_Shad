@@ -173,7 +173,7 @@ input[type="range"]::-webkit-slider-thumb {
     z-index: 9999;
     width: 100%;
     height: 100%;
-    background: rgb(99, 99, 99);
+    background: white;
     justify-content: center;
     align-items: center;
 
@@ -181,8 +181,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 body.video-active {
-    background: rgb(97, 97, 97);
-    background-color: rgb(97, 97, 97);
+    background: white;
+    background-color: white;
 }
 
 #footerText {
