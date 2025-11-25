@@ -75,7 +75,7 @@ document.getElementById("sat-range").addEventListener("input", e => {
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
         footer.style.display = "none";
-        videoDiv.style.display = "block";
+        videoDiv.style.display = "flex";
         endVideo.play();
 
         endVideo.onended = () => {
