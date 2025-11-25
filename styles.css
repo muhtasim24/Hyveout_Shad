@@ -67,7 +67,7 @@ body {
 
 .target, .user-set {
     
-    width: clamp(30px, 19vw, 150px);
+    width: clamp(30px, 19.2vw, 150px);
     height: clamp(20px, 7.05vh, 70px)
 }
 
