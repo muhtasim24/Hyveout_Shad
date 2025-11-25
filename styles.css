@@ -185,6 +185,23 @@ input[type="range"]::-webkit-slider-thumb {
 
 }
 
+#footerText {
+    position: absolute;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    bottom: 2%;           /* distance from bottom */
+    left: 25%;
+    font-family: 'PressStart2P', sans-serif;  /* match your font */
+    font-size: 3vw;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 5px black;   /* glow/shadow for visibility */
+    z-index: 9000000;       /* stays above all animations */
+    pointer-events: none; /* text won’t block clicks */
+    word-spacing: -5px;
+    white-space: nowrap;
+  }
+
 .play {
     background-color: hotpink;
     color: white;
@@ -195,7 +212,7 @@ input[type="range"]::-webkit-slider-thumb {
     transform: translate(-50%, -50%);
     border: none;
     padding: 10px 4px;
-    font-size: 10vw;
+    font-size: 5vw;
     z-index: 1;
     cursor: pointer;
 }
@@ -285,6 +302,11 @@ input[type="range"]::-webkit-slider-thumb {
         cursor: pointer;
         border: 2px solid white;
 }
+    #footerText {
+        font-size: clamp(20px, 1vw, 100px);     /* scales with screen size */
+        left: 50%; /* go to the midpoint of the screen */
+        transform: translateX(-50%); /* pull back by half its own width */
+    }
 
 }
 

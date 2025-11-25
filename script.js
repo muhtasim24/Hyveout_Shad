@@ -9,6 +9,8 @@ const startScreen = document.querySelector(".startScreen");
 const container = document.getElementById("container");
 const music = document.getElementById("music");
 
+const footer = document.getElementById('footerText');
+
 playButton.addEventListener("click", () => {
     // Show game
     startScreen.style.display = "none";
@@ -56,6 +58,7 @@ document.getElementById("hue-range").addEventListener("input", e => {
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
         videoDiv.style.display = "flex";
+        footer.style.display = "none";
         endVideo.play();
 
         endVideo.onended = () => {
@@ -69,6 +72,7 @@ document.getElementById("sat-range").addEventListener("input", e => {
     updateUserColor();
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
+        footer.style.display = "none";
         videoDiv.style.display = "block";
         endVideo.play();
 
