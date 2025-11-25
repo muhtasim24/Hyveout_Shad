@@ -104,8 +104,8 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    width: clamp(40vw, 58vw, 60vw);
-    height: 13vh;
+    width: clamp(40vw, 60vw, 60vw);
+    height: 14vh;
     display: flex;
     align-items: center; /* centers the input vertically */
     justify-content: center; /* optional, centers horizontally */
@@ -128,8 +128,8 @@ body {
 .hue-range {
     -webkit-appearance: none;  /* remove default styles */
     position: relative;
-    width: clamp(100px, 35vw, 150px);
-    height: 1.1vh;
+    width: clamp(100px, 37vw, 150px);
+    height: 1.2vh;
     border-radius: 10px;
     background: linear-gradient(to right, 
         red, orange, yellow, green, cyan, blue, violet, red
@@ -138,7 +138,7 @@ body {
     touch-action: none;
 
     position: absolute;
-    top: 70%;
+    top:68%;
     left: 22%;
 }
 
@@ -146,23 +146,23 @@ body {
     touch-action: none;
     -webkit-appearance: none;
     position: relative;
-    width: clamp(20vw, 35vw, 150px);
-    height: 1.1vh;
+    width: clamp(20vw, 37vw, 150px);
+    height: 1.2vh;
     border-radius: 10px;
     outline: none;
     background: linear-gradient(to right, hsl(0, 3%, 79%),  hsl(0, 100%, 50%)); /* placeholder gradient */
     transform: scaleX(-1); /* unflip the slider logic */
 
     position: absolute;
-    top: 70%;
-    left: 23%;
+    top: 67%;
+    left: 24%;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 4vw;
-    height: 1.8vh;
+    width: 4.2vw;
+    height: 2.2vh;
     background: hotpink;
     border-radius: 50%;
     cursor: pointer;
