@@ -58,6 +58,8 @@ document.getElementById("hue-range").addEventListener("input", e => {
     if (colorsAreClose(hue, sat, targetHue, targetSat)) {
         console.log('playing');
         videoDiv.style.display = "flex";
+        container.style.display = "none";
+        videoDiv.style.backgroundColor = "black";
         footer.style.display = "none";
         endVideo.play();
 
