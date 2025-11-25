@@ -59,12 +59,13 @@ document.getElementById("hue-range").addEventListener("input", e => {
         console.log('playing');
         videoDiv.style.display = "flex";
         container.style.display = "none";
-        videoDiv.style.backgroundColor = "black";
         footer.style.display = "none";
+        document.body.classList.add("video-active");
+
         endVideo.play();
 
         endVideo.onended = () => {
-            window.location.href = "https://underdogs.ooo/a/gempages?version=v7&shop_id=589225404988916242&theme_page_id=594726190963491762&page_type=GP_PRODUCT";
+            window.location.href = "https://underdogs.ooo/products/ultrapink?utm_campaign=ultrapink&utm_content=short&utm_medium=social&utm_source=shareable_link&utm_term=bio";
         };
     }
 });
@@ -76,10 +77,12 @@ document.getElementById("sat-range").addEventListener("input", e => {
         console.log('playing');
         footer.style.display = "none";
         videoDiv.style.display = "flex";
+        document.body.classList.add("video-active");
+
         endVideo.play();
 
         endVideo.onended = () => {
-            window.location.href = "https://underdogs.ooo/a/gempages?version=v7&shop_id=589225404988916242&theme_page_id=594726190963491762&page_type=GP_PRODUCT";
+            window.location.href = "https://underdogs.ooo/products/ultrapink?utm_campaign=ultrapink&utm_content=short&utm_medium=social&utm_source=shareable_link&utm_term=bio";
         };
     }
 });
