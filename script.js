@@ -46,7 +46,7 @@ function colorsAreClose(h1, s1, h2, s2) {
     const hueDiff = Math.abs(h1 - h2);
     const satDiff = Math.abs(s1 - s2);
 
-    return hueDiff < 5 && satDiff < 5;
+    return hueDiff < 10 && satDiff < 10;
 }
 
 
